@@ -1,0 +1,2 @@
+# ShepardAI
+A Christian 
