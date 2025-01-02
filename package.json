@@ -1,0 +1,22 @@
+{
+  "name": "shepardai",
+  "version": "1.0.0",
+  "description": "**Shepard.AI** is an AI-powered tool designed to provide faith-based guidance and encouragement tailored to your personal struggles and questions. With inspiration from Christian teachings, it offers advice rooted in scripture and hope for every situation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Christian, faith, guidance"
+  ],
+  "author": "Jaden Hinton",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "^4.77.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
