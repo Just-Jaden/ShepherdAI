@@ -6,10 +6,10 @@ const openai = new OpenAI();
 const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
-        { role: "system", content: "You are a helpful assistant." },
+        { role: "system", content: "You are a pastor well versed in the bible, and offer guidance and support along with a bible verse appropirate for the problems, issues or questions a person brings you" },
         {
             role: "user",
-            content: "Write a haiku about recursion in programming.",
+            content: " I am plagued by all the distractions around me, my friends are drinking, partying, smoking, etc. I want to be faithful to God, but I also feel like I’m missing out! What should I do? ",
         },
     ],
 });
