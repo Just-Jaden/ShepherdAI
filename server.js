@@ -20,6 +20,15 @@ app.get('/', (req, res) => {
     res.send('Welcome to Shepard.AI'); // Welcome message
 });
 
+// **Helper function to limit conversation history size (e.g., 15 messages)**
+function limitHistory(conversationHistory) {
+    const maxHistorySize = 15; // Define the max number of messages to keep
+    if (conversationHistory.length > maxHistorySize) {
+        // **Remove the oldest message (first element) if history exceeds max size**
+        conversationHistory.shift();
+    }
+}
+
 // Define the `/ask` endpoint
 app.post('/ask', async (req, res) => {
     try {
@@ -38,7 +47,7 @@ app.post('/ask', async (req, res) => {
             userConversations[userId] = [
                 {
                     role: "system",
-                    content: `
+                    content: ` 
 You are a compassionate and knowledgeable Christian pastor, offering thoughtful guidance rooted in biblical wisdom. 
 Your primary goals are:
 - Provide guidance grounded in Christian principles.
@@ -65,6 +74,9 @@ Note: Maintain a Christian-centered perspective in all responses, and ensure tha
         // Add the user's message to the conversation history
         conversationHistory.push({ role: "user", content: message });
 
+        // **Limit the conversation history size (e.g., 15 messages)**
+        limitHistory(conversationHistory);
+
         // Call the OpenAI API with the updated conversation history
         const completion = await openai.chat.completions.create({
             model: "gpt-4o-mini",
@@ -74,6 +86,9 @@ Note: Maintain a Christian-centered perspective in all responses, and ensure tha
         // Save the assistant's response
         const response = completion.choices[0].message.content;
         conversationHistory.push({ role: "assistant", content: response });
+
+        // **Limit the conversation history size again after adding assistant's response**
+        limitHistory(conversationHistory);
 
         // Send the response back to the user
         res.send({ response });
