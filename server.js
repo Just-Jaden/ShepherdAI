@@ -2,6 +2,7 @@
 const express = require('express'); // Simplifies building web servers and APIs
 const OpenAI = require('openai'); // Enables interaction with OpenAI's API
 require('dotenv').config(); // Securely loads environment variables
+const { v4: uuidv4 } = require ('uuid'); //generates unique user Ids
 
 // Initialize the express application
 const app = express();
@@ -11,16 +12,33 @@ const openai = new OpenAI(); // Create an instance of the OpenAI client
 // Middleware to parse incoming JSON payloads
 app.use(express.json());
 
+// **Store conversation histories for each user**
+const userConversations = {}; 
+
 // Define a GET route for the root URL
 app.get('/', (req, res) => {
     res.send('Welcome to Shepard.AI'); // Welcome message
 });
 
-// Store conversation history
-let conversationHistory = [
-    {
-        role: "system",
-        content: `
+// Define the `/ask` endpoint
+app.post('/ask', async (req, res) => {
+    try {
+        const { userId, message } = req.body; // Extract `userId` and `message`
+
+        // Validate input
+        if (!message) {
+            return res.status(400).send({ error: 'Message is required' });
+        }
+
+        // **Create a unique conversation history for the user if not already present**
+        if (!userId) {
+            return res.status(400).send({ error: 'User ID is required' });
+        }
+        if (!userConversations[userId]) {
+            userConversations[userId] = [
+                {
+                    role: "system",
+                    content: `
 You are a compassionate and knowledgeable Christian pastor, offering thoughtful guidance rooted in biblical wisdom. 
 Your primary goals are:
 - Provide guidance grounded in Christian principles.
@@ -36,22 +54,16 @@ Key Guidelines:
    Always be empathetic, nonjudgmental, and supportive, creating a safe space for the user to express their concerns.
 
 Note: Maintain a Christian-centered perspective in all responses, and ensure that advice aligns with biblical principles.
-        `
-    }
-];
-
-// Define the `/ask` endpoint
-app.post('/ask', async (req, res) => {
-    try {
-        const userMessage = req.body.message;
-
-        // Check if the user message exists
-        if (!userMessage) {
-            return res.status(400).send({ error: 'Message is required' });
+                    `
+                }
+            ];
         }
 
+        // **Retrieve the user's conversation history**
+        const conversationHistory = userConversations[userId];
+
         // Add the user's message to the conversation history
-        conversationHistory.push({ role: "user", content: userMessage });
+        conversationHistory.push({ role: "user", content: message });
 
         // Call the OpenAI API with the updated conversation history
         const completion = await openai.chat.completions.create({
@@ -63,7 +75,7 @@ app.post('/ask', async (req, res) => {
         const response = completion.choices[0].message.content;
         conversationHistory.push({ role: "assistant", content: response });
 
-        // Send the response to the user
+        // Send the response back to the user
         res.send({ response });
     } catch (error) {
         console.error(error);
