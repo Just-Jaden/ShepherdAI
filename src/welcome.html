@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Shepard.AI</title>
+    <link rel="stylesheet" href="styles/welcome.css">
+</head>
+<body>
+    <nav>
+        <div id="navLeft">
+            <span id="projectName">Shepard.AI</span>
+        </div>
+        <div id="navRight">
+            <a href="welcome.html" class="navLink">Welcome</a>
+            <a href="chat.html" class="navLink">Session</a>
+            <a href="about.html" class="navBox">About</a>
+        </div>
+    </nav>
+    <main>
+        <h1>Welcome to Shepard.AI</h1>
+        <p>Your compassionate and knowledgeable guide for thoughtful advice rooted in Christian values.</p>
+        <div class="container">
+            <button id = "startButton" class="btn-1">Start Session</button>
+        </div>
+    </main>
+    <script>
+        // Redirect to the chatbot page when the button is clicked
+        const startButton = document.getElementById('startButton');
+        startButton.addEventListener('click', () => {
+            window.location.href = 'chat.html';
+        });
+    </script>
+</body>
+</html>

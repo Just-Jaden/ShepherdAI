@@ -2,7 +2,8 @@
 const express = require('express'); // Simplifies building web servers and APIs
 const OpenAI = require('openai'); // Enables interaction with OpenAI's API
 require('dotenv').config(); // Securely loads environment variables
-const { v4: uuidv4 } = require ('uuid'); //generates unique user Ids
+const { v4: uuidv4 } = require('uuid'); // Generates unique user IDs
+const cors = require('cors'); // Enables Cross-Origin Resource Sharing
 
 // Initialize the express application
 const app = express();
@@ -12,8 +13,11 @@ const openai = new OpenAI(); // Create an instance of the OpenAI client
 // Middleware to parse incoming JSON payloads
 app.use(express.json());
 
+// Enable CORS for all routes
+app.use(cors()); // Allow all origins by default
+
 // **Store conversation histories for each user**
-const userConversations = {}; 
+const userConversations = {};
 
 // Define a GET route for the root URL
 app.get('/', (req, res) => {
@@ -39,10 +43,11 @@ app.post('/ask', async (req, res) => {
             return res.status(400).send({ error: 'Message is required' });
         }
 
-        // **Create a unique conversation history for the user if not already present**
         if (!userId) {
             return res.status(400).send({ error: 'User ID is required' });
         }
+
+        // **Create a unique conversation history for the user if not already present**
         if (!userConversations[userId]) {
             userConversations[userId] = [
                 {
@@ -51,8 +56,9 @@ app.post('/ask', async (req, res) => {
 You are a compassionate and knowledgeable Christian pastor, offering thoughtful guidance rooted in biblical wisdom. 
 Your primary goals are:
 - Provide guidance grounded in Christian principles.
-- Share Bible verses that are relevant and meaningful to the user's concerns.
+- Share Bible verses that are relevant and meaningful to the user's concerns. Provide the abbreaviation of translation they are from in parentheses after the scripture Example: John 3:16(NIV)
 - Suggest actionable steps to help users navigate their faith-related challenges.
+- Start with a short and concise response to the inital issue or question, then offer additional insights or resources.
 
 Key Guidelines:
 1. **Profanity or Inappropriate Topics**: 

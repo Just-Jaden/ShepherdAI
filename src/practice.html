@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shepherd.AI - Your Personal Christian Guide & Therapist</title>
+    <!-- Google Fonts for a blend of modern and traditional styles -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Lato:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global Styles */
+      body {
+        margin: 0;
+        font-family: 'Lato', sans-serif;
+        background: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Header */
+      .header {
+        background: #4169e1; /* Royal blue */
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+      }
+      .header h1 {
+        font-family: 'Merriweather', serif;
+        margin: 0;
+        font-size: 2.5em;
+      }
+      .header p {
+        margin: 5px 0 0;
+        font-size: 1.2em;
+      }
+      /* Yellow star icon */
+      .star {
+        width: 30px;
+        height: 30px;
+        fill: #ffd700; /* Gold / Yellow */
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: url('your-hero-image.jpg') no-repeat center center;
+        background-size: cover;
+        padding: 100px 20px;
+        position: relative;
+        color: white;
+        text-align: center;
+      }
+      /* Optional overlay to darken the background for text readability */
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      .hero h2 {
+        font-family: 'Merriweather', serif;
+        font-size: 2.8em;
+        margin: 0 0 20px;
+      }
+      .hero p {
+        font-size: 1.2em;
+        margin: 0 0 30px;
+      }
+      .cta-button {
+        background: #ffd700;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        color: #333;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      .cta-button:hover {
+        background: #e6c200;
+      }
+
+      /* Features Section */
+      .features {
+        padding: 50px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: #fff;
+      }
+      .feature-card {
+        flex: 1 1 300px;
+        background: #f9f9f9;
+        margin: 10px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .feature-card h3 {
+        font-family: 'Merriweather', serif;
+        color: #4169e1;
+      }
+      .feature-card p {
+        font-size: 1em;
+      }
+
+      /* Example Interaction Section */
+      .example {
+        background: #eef5f9;
+        padding: 30px 20px;
+        margin: 20px;
+        border-radius: 8px;
+      }
+      .example h3 {
+        font-family: 'Merriweather', serif;
+        color: #4169e1;
+      }
+      .example p {
+        margin: 10px 0;
+      }
+      .example .user,
+      .example .response {
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .example .user {
+        background: #fff;
+        border-left: 4px solid #4169e1;
+      }
+      .example .response {
+        background: #fff;
+        border-left: 4px solid #ffd700;
+      }
+
+      /* Footer */
+      .footer {
+        background: #333;
+        color: #ccc;
+        text-align: center;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with Logo and Title -->
+    <header class="header">
+      <!-- SVG star icon -->
+      <svg class="star" viewBox="0 0 64 64">
+        <polygon
+          points="32,4 39,24 60,24 42,38 49,58 32,46 15,58 22,38 4,24 25,24"
+        />
+      </svg>
+      <h1>Shepherd.AI</h1>
+      <p>Your Personal Christian Guide &amp; Therapist</p>
+    </header>
+
+    <!-- Hero Section with Welcome Message and CTA -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Welcome to Shepherd.AI</h2>
+        <p>
+          Guiding you with faith, hope, and scripture-inspired wisdom for every
+          challenge.
+        </p>
+        <button class="cta-button" onclick="window.location.href='app.html'">
+          Get Started
+        </button>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="feature-card">
+        <h3>Personalized Christian Advice</h3>
+        <p>
+          Share your concerns and receive thoughtful, faith-based guidance paired
+          with relevant Bible verses.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Scripture-Driven Responses</h3>
+        <p>
+          Our responses are powered by enriched models that draw on scripture,
+          Christian life resources, journals, and more.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>Audio Integration</h3>
+        <p>
+          Experience seamless audio-to-text and text-to-audio interactions for a
+          hands-free experience.
+        </p>
+      </div>
+    </section>
+
+    <!-- Example Interaction Section -->
+    <section class="example">
+      <h3>Example Interaction</h3>
+      <div class="user">
+        <p>
+          <strong>User:</strong> "I feel like I'm being pulled into
+          distractions by my friends who drink, party, and smoke. I want to stay
+          faithful to God, but I also feel like I'm missing out. What should I do?"
+        </p>
+      </div>
+      <div class="response">
+        <p>
+          <strong>Shepherd.AI Response:</strong> "Your concern is valid. The
+          pleasures of a worldly lifestyle can be tempting, but leading a Christian
+          lifestyle is always worth it. Remember, you are not alone; God is always
+          with you. I encourage you to pray, voice your concerns, and keep your eyes
+          on the eternal reward. Galatians 6:8 says, 'Whoever sows to please their
+          flesh, from the flesh will reap destruction; whoever sows to please the
+          Spirit, from the Spirit will reap eternal life.' Would you like more verses
+          or a guided prayer?"
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Built with love, guided by faith.</p>
+      <p>&copy; 2025 Shepherd.AI</p>
+    </footer>
+
+    <!-- Optional: Include your JavaScript for audio integration and other interactive elements here -->
+    <script>
+      // Example: Placeholder for audio-to-text or text-to-audio functionality.
+      // function startAudioInteraction() {
+      //   // Initialize audio input or play audio guidance.
+      // }
+    </script>
+  </body>
+</html>

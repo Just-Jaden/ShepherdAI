@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #283c86, #45a247); /* Matches the design */
+    color: white;
+    overflow: hidden; /* Prevent scrollbars from appearing unnecessarily */
+}
+
+#chatbox {
+    width: 50%;
+    max-width: 600px;
+    height: 400px; /* Fixed height for scrollable chatbox */
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Adds depth */
+    scrollbar-width: thin; /* Works on Firefox */
+    scrollbar-color: lightgray transparent;
+}
+
+#chatbox::-webkit-scrollbar {
+    width: 8px; /* Set the scrollbar width */
+}
+
+#chatbox::-webkit-scrollbar-thumb {
+    background-color: lightgray; /* Customize scrollbar color */
+    border-radius: 4px;
+}
+
+#chatbox::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+#inputContainer {
+    margin-top: 20px;
+    width: 50%;
+    max-width: 600px;
+    display: flex;
+    gap: 10px;
+}
+
+#userInput {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none; /* Removes blue border on focus */
+}
+
+#sendButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #45a247;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#sendButton:hover {
+    background-color: #379b36; /* Darker green for hover effect */
+}
+
+.message {
+    margin: 10px 0;
+    word-wrap: break-word; /* Ensure long messages wrap correctly */
+}
+
+.userMessage {
+    text-align: right;
+    color: lightblue;
+}
+
+.botMessage {
+    text-align: left;
+    color: lightgreen;
+}
