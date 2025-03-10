@@ -1,5 +1,5 @@
-# Shepard.AI: Your Personal Christian Guide & Therapist  
-**Shepard.AI** is an AI-powered tool designed to provide faith-based guidance and encouragement tailored to your personal struggles and questions. With inspiration from Christian teachings, it offers advice rooted in scripture and hope for every situation.
+# Shepherd.AI: Your Personal Christian Guide & Therapist  
+**Shepherd.AI** is an AI-powered tool designed to provide faith-based guidance and encouragement tailored to your personal struggles and questions. With inspiration from Christian teachings, it offers advice rooted in scripture and hope for every situation.
 
 ---
 
@@ -16,13 +16,13 @@
 **User:**  
 *"I feel like I'm being pulled into distractions by my friends who drink, party, and smoke. I want to stay faithful to God, but I also feel like I'm missing out. What should I do?"*  
 
-**Shepard.AI Response:**  
+**Shepherd.AI Response:**  
 *"Your concern is valid. The pleasures of a worldly lifestyle can be tempting, but leading a Christian lifestyle is always worth it. Remember, you are not alone; God is always with you. I encourage you to pray, voice your concerns, and keep your eyes on the eternal reward. Galatians 6:8 says, 'Whoever sows to please their flesh, from the flesh will reap destruction; whoever sows to please the Spirit, from the Spirit will reap eternal life.' Would you like more verses or a guided prayer?"*  
 
 ---
 
-## Why Shepard.AI?  
-Life can be overwhelming, but with **Shepard.AI**, you'll always have a companion to guide you through challenges with faith, hope, and wisdom. Whether you need advice, scripture inspiration, or someone to pray alongside you, **Shepard.AI** is here to uplift your spirit.
+## Why Shepherd.AI?  
+Life can be overwhelming, but with **Shepherd.AI**, you'll always have a companion to guide you through challenges with faith, hope, and wisdom. Whether you need advice, scripture inspiration, or someone to pray alongside you, **Shepherd.AI** is here to uplift your spirit.
 
 ---
 
